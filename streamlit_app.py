@@ -278,9 +278,8 @@ def show_analysis_results():
         
         with col2:
             fig = px.bar(x=pos_counts.index[:8], y=pos_counts.values[:8],
-                        title="Most Drafted Positions")
-            fig.update_xaxis(title="Position")
-            fig.update_yaxis(title="Number of Players")
+                        title="Most Drafted Positions",
+                        labels={'x': 'Position', 'y': 'Number of Players'})
             st.plotly_chart(fig, use_container_width=True)
     
     with tab4:
@@ -305,9 +304,9 @@ def show_analysis_results():
             
             # Distribution chart
             fig = px.histogram(passers, x='pass_completion_rate', nbins=15,
-                             title="Pass Completion Rate Distribution")
-            fig.update_xaxis(tickformat='.0%', title="Completion Rate")
-            fig.update_yaxis(title="Number of Players")
+                             title="Pass Completion Rate Distribution",
+                             labels={'pass_completion_rate': 'Completion Rate', 'count': 'Number of Players'})
+            fig.update_layout(xaxis_tickformat='.0%')
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.info("No passing statistics available in this dataset")
