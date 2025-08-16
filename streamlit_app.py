@@ -210,20 +210,6 @@ def main():
             show_analysis_results()
         
         st.markdown('</div>', unsafe_allow_html=True)
-    
-    # Final download
-    if st.session_state.analysis_done:
-        st.markdown("---")
-        st.markdown("### 💾 Download Results")
-        col1, col2, col3 = st.columns([1, 1, 1])
-        with col2:
-            csv = st.session_state.clean_data.to_csv(index=False)
-            st.download_button(
-                label="📥 Download Complete Dataset",
-                data=csv,
-                file_name="nfl_draft_2017_complete.csv",
-                mime="text/csv"
-            )
 
 def show_analysis_results():
     """Display analysis results"""
